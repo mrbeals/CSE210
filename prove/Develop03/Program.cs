@@ -2,6 +2,8 @@ using System;
 using System.ComponentModel;
 using System.Net.Quic;
 
+// This program will not try to hide words that are already hidden. Only the words that have yet to be hid.
+
 class Program
 {
     static void Main(string[] args)
