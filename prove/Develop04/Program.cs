@@ -1,5 +1,6 @@
 using System;
 
+// Added a counter for each activity, to track how many times they were completed in a session.
 class Program
 {
     static void Main(string[] args)
