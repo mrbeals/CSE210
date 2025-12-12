@@ -69,11 +69,13 @@ public class Consumable : Items
 
     public void UseConsumable()
     {
-        
+        _quantity -= 1;
+        Console.WriteLine($"Used one {GetName()}, did {_damage} damage, Healed {_healAmount}, {_quantity} remaining");
     }
     public override void Display()
     {
-        
+        Console.WriteLine($"Name: {GetName()} || {GetDescription()} || Weight: {GetWeight()} ");
+        Console.WriteLine($"Quantity: {_quantity} || Damage: {_damage} || Heal Amount: {_healAmount}\n");
     }
     public int GetDaamge()
     {
@@ -102,5 +104,9 @@ public class Consumable : Items
     public void SetHealAmount(int healAmount)
     {
         _healAmount = healAmount;
+    }
+        public string ConsumableToString()
+    {
+        return $"Consumables||{GetName()}||{GetDescription()}||{GetWeight()}||{GetStackable()}||{_damage}||{_quantity}||{_healAmount}";
     }
 }

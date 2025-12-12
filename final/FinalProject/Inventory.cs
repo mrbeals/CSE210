@@ -15,7 +15,7 @@ public class Inventory :  Storage
     {
         _maxWeight = maxWeight;
         _currentWeight = currentWeight;
-        _inventory = [];
+        _inventory = new List<Items>();
     }
     public Inventory(int maxSlots, int maxWeight, List<Items> inventory) : base(maxSlots)
     {
@@ -27,7 +27,7 @@ public class Inventory :  Storage
     {
         _maxWeight = maxWeight;
         _currentWeight = GetCurrentWeight();
-        _inventory = [];
+        _inventory = new List<Items>();
     }
     public Inventory(int maxSlots, List<Items> inventory) : base(maxSlots)
     {
@@ -39,14 +39,14 @@ public class Inventory :  Storage
     {
         _maxWeight = 100;
         _currentWeight = GetCurrentWeight();
-        _inventory = [];
+        _inventory = new List<Items>();
     }
 
     public Inventory() 
     {
         _maxWeight = 100;
         _currentWeight = GetCurrentWeight();
-        _inventory = [];
+        _inventory = new List<Items>();
     }
     public int GetCurrentWeight()
     {
@@ -83,8 +83,29 @@ public class Inventory :  Storage
         _maxWeight = maxWeight;
     }
     public override void Display()
-    {
-        
+    {    
+        int counter = 0;
+        foreach (Items I in _inventory)
+        {
+            if (I.GetStackable() && I is Consumable c)
+            {
+                Console.Write($"[{I.GetName}x{c.GetQuantity()}] ");
+                counter += 1;
+                if (counter % 7 == 0)
+                {
+                    Console.Write($"\n");
+                }
+            }
+            else {
+            Console.Write($"[{I.GetName}] ");
+            counter += 1;
+            if (counter % 10 == 0)
+            {
+                Console.Write($"\n");
+            }
+            }
+        }
+        Console.WriteLine("");
     }
     public Boolean CheckWeight(int weight)
     {
@@ -112,5 +133,28 @@ public class Inventory :  Storage
     public void DisplayWeight()
     {
         Console.WriteLine($"{_currentWeight}/{_maxWeight}");
+    }
+    public void DisplayItemWeights()
+    {
+        DisplayWeight();
+        foreach (Items I in _inventory)
+        {
+            Console.WriteLine($"{I.GetName()} : {I.GetWeight()}");
+        }
+    }
+        public List<Items> GetInventory()
+    {
+        return _inventory;
+    }
+    public Items FindItem(string name)
+    {
+        foreach (Items i in _inventory)
+        {
+            if (i.GetName() == name)
+            {
+              return i;  
+            }
+        }
+        return null;
     }
     }

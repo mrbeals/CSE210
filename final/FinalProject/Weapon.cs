@@ -187,7 +187,12 @@ public class Weapon : Items
     }
     public override void Display()
     {
-        
+        Console.WriteLine($"Name: {GetName()} || {GetDescription()} || Weight: {GetWeight()} ");
+        Console.WriteLine($"Type: {_weaponClass} || Damage: {_damage} || Defense: {_defense} || Hand: {_hand}\n");
+    }
+    public string WeaponToString()
+    {
+        return $"Weapon||{GetName()}||{GetDescription()}||{GetWeight()}||{GetStackable()}||{_damage}||{_weaponClass}||{_defense}||{_requireProjectile}||{_hand}";
     }
 }
 

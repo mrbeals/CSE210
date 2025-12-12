@@ -59,7 +59,11 @@ public class KeyItems : Items
     }
     public override void Display()
     {
-        
+        Console.WriteLine($"Name: {GetName()} || {GetDescription()} || Weight: {GetWeight()} ");
+        Console.WriteLine($"Effect: {_effect}\n");
     }
-
+        public string KeyItemToString()
+    {
+        return $"KeyItems||{GetName()}||{GetDescription()}||{GetWeight()}||{GetStackable()}||{_effect}";
+    }
 }

@@ -9,11 +9,11 @@ public class KeyItemInventory : Storage
     }
     public KeyItemInventory(int maxSlots) : base(maxSlots)
     {
-         _keyItemInventory = [];
+         _keyItemInventory = new List<KeyItems>();
     }
     public KeyItemInventory() 
     {
-        _keyItemInventory = [];
+        _keyItemInventory = new List<KeyItems>();
     }
 
     public override void Discard(Items item)
@@ -22,10 +22,25 @@ public class KeyItemInventory : Storage
     }
     public override void Display()
     {
-        
+        int counter = 0;
+        foreach (Items I in _keyItemInventory)
+        {
+            
+            Console.Write($"[{I.GetName}] ");
+            counter += 1;
+            if (counter % 5 == 0)
+            {
+                Console.Write($"\n");
+            }
+        }
+        Console.WriteLine("");
     }
     public void AddToKeyItems(KeyItems keyitem)
     {
         _keyItemInventory.Add(keyitem);
+    }
+        public List<KeyItems> GetKeyItemInventory()
+    {
+        return _keyItemInventory;
     }
 }
