@@ -24,9 +24,17 @@ public class FrogMerchant
     }
     public void ItemAquire(Inventory inventory, KeyItemInventory keyItemInventory)
     {
-        Items item = GetRandomItem();
         Console.Clear();
         DisplayMerchant();
+        if (_itemList.Count() == 0)
+        {
+            Console.WriteLine("I have no items yet :) ");
+            Console.Write("Press enter to return. ");
+            Console.ReadLine();
+        }
+        else
+        {
+        Items item = GetRandomItem();
         Console.WriteLine($"I seem to have this {item} here for you. it is described as '{item.GetDescription()}'");
         Console.Write("Would you like this item? (y/n) ");
         string answer = Console.ReadLine();
@@ -49,5 +57,6 @@ public class FrogMerchant
         {
             Console.WriteLine("Well next time I hope I can peak your interest.");
         }
+    }
     }
 }
