@@ -26,7 +26,7 @@ public class KeyItemInventory : Storage
         foreach (Items I in _keyItemInventory)
         {
             
-            Console.Write($"[{I.GetName}] ");
+            Console.Write($"[{I.GetName()}] ");
             counter += 1;
             if (counter % 5 == 0)
             {

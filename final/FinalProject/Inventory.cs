@@ -71,7 +71,7 @@ public class Inventory :  Storage
     public void InventoryToBank(Items item, Bank bank)
     {
         bank.AddToBank(item);
-        _inventory.Remove(item);
+        Discard(item);
         _currentWeight = GetCurrentWeight();
     }
     public int GetMaxWeight()
@@ -97,7 +97,7 @@ public class Inventory :  Storage
                 }
             }
             else {
-            Console.Write($"[{I.GetName}] ");
+            Console.Write($"[{I.GetName()}] ");
             counter += 1;
             if (counter % 10 == 0)
             {

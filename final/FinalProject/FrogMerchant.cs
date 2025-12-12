@@ -27,7 +27,7 @@ public class FrogMerchant
         Items item = GetRandomItem();
         Console.Clear();
         DisplayMerchant();
-        Console.WriteLine($"I seem to have this {item} here for you. it says that '{item.GetDescription()}'");
+        Console.WriteLine($"I seem to have this {item} here for you. it is described as '{item.GetDescription()}'");
         Console.Write("Would you like this item? (y/n) ");
         string answer = Console.ReadLine();
         if (answer.ToLower() == "y")

@@ -32,7 +32,7 @@ public class Bank : Storage
                 }
             }
             else {
-            Console.Write($"[{I.GetName}] ");
+            Console.Write($"[{I.GetName()}] ");
             counter += 1;
             if (counter % 10 == 0)
             {

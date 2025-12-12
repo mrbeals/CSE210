@@ -26,7 +26,7 @@ class Program
             Console.WriteLine("6. Save.");
             Console.WriteLine("7. Load");
             Console.WriteLine("8. Quit");
-            Console.WriteLine("What would you pick? ");
+            Console.Write("What would you pick? ");
             choice = int.Parse(Console.ReadLine());
 
             if (choice == 1)
@@ -69,7 +69,7 @@ class Program
        Console.WriteLine("2. Armor");
        Console.WriteLine("3. Consumable");
        Console.WriteLine("4. KeyItems");
-       Console.Write("What type of Item would you like to add?");
+       Console.Write("What type of Item would you like to add? ");
        int first = int.Parse(Console.ReadLine());
 
        if (first == 1)
@@ -192,6 +192,7 @@ class Program
             frogMerchant.AddtoItemList(keyItems);            
         }
         Console.WriteLine("Item added Successfully!");
+        Console.Write("Press enter to return. ");
         Console.ReadLine();
 
 
